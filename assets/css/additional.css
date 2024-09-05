@@ -1,0 +1,8 @@
+.modal-header{
+    border-bottom: unset!important;
+}
+
+/* Efek blur pada awalnya */
+.blurred {
+    filter: blur(20px);
+}

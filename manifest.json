@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "Multi Clock New Tab",
+    "version": "1.0",
+    "description": "Displays multiple clocks on the new tab page with the ability to add clocks dynamically.",
+    "chrome_url_overrides": {
+      "newtab": "landing.html"
+    },
+    "permissions": []
+  }
+  

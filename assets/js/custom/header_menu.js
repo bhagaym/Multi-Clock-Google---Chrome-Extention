@@ -26,7 +26,7 @@ function load_tabel_menu(){
         rangkai += '<tr>' +
             '<td>'+item.menuName+'</td>' +
             '<td><a href="'+item.link+'" target="_blank" class="d-inline-block text-truncate" style="max-width: 250px;">'+item.link+'</a></td>' +
-            '<td class="text-end"><button class="btn btn-icon btn-light-danger btn-sm" onclick="removeMenus('+i+')"><i class="fa fa-trash"></i></button>';
+            '<td class="text-end"><button class="btn btn-icon btn-light-danger btn-sm removeMenus" data-index="'+i+'"><i class="fa fa-trash"></i></button>';
     });
 
     if(rangkai){
@@ -50,10 +50,10 @@ $("#save_menu").click(function(){
         
         addMenus(menu_name, link);
 
-        $("#header_menu_modal").modal('hide');
         // clear input fields
         $("#menu_name").val('');
         $("#link").val('');
+        load_tabel_menu();
     }
 })
         
@@ -65,6 +65,10 @@ function addMenus(menuName, link) {
     renderMenu();
 }
 
+$(document).on('click', '.removeMenus', function() {
+    var index = $(this).data('index');
+    removeMenus(index);
+});
 // Remove menu from localStorage and update the UI
 function removeMenus(index) {
     const menus = getMenus();

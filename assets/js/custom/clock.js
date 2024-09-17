@@ -48,7 +48,7 @@ function load_tabel_clock(){
         rangkai += '<tr>' +
             '<td>'+item.clockName+'</td>' +
             '<td>'+item.timezone+'</td>' +
-            '<td class="text-end"><button class="btn btn-icon btn-light-danger btn-sm" onclick="removeClock('+i+')"><i class="fa fa-trash"></i></button>';
+            '<td class="text-end"><button class="btn btn-icon btn-light-danger btn-sm removeClock" data-index="'+i+'"><i class="fa fa-trash"></i></button>';
     });
 
     if(rangkai){
@@ -87,6 +87,10 @@ function addClock(clockName, timezone) {
     renderTime();
 }
 
+$(document).on('click', '.removeClock', function() {
+    var index = $(this).data('index');
+    removeClock(index);
+});
 // Remove clock from localStorage and update the UI
 function removeClock(index) {
     const clocks = getClocks();
